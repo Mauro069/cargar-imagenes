@@ -3,10 +3,18 @@ import { connectToDatabase } from './utils/db.js'
 import { upload } from './config/multer.js'
 import { User } from './models/User.js'
 import express from 'express'
+import cors from 'cors'
 
 connectToDatabase()
 const app = express()
 const port = 3000
+
+// Configurar CORS
+app.use(
+  cors({
+    origin: 'http://localhost:5173'
+  })
+)
 
 // Ruta principal
 // prettier-ignore
